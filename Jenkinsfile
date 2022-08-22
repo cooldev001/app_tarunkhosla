@@ -28,7 +28,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('Test_Sonar') {
                     sh """
-                        ${scannerHome}/bin/sonar-scanner" /
+                        ${scannerHome}/bin/sonar-scanner /
                         -Dsonar.projectKey=sonar-tarunkhosla \
                         -Dsonar.projectName=sonar-tarunkhosla
                     """
