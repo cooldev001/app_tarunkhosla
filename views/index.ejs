@@ -7,6 +7,13 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <h3> ConfigMap </h3>
+<p>Key1: <b><%= JSON.stringify(env.key1) %></b>.<p>
+<p>Key2: <b><%= JSON.stringify(env.key2) %></b>.<p>
+<br>
+<h3> Secret </h3>
+<p>Username: <b><%= JSON.stringify(env.username) %></b><p>
+<p>Password: <b><%= JSON.stringify(env.password) %></b><p>
   </body>
   <script>
     console.table(<%- JSON.stringify(env) %>)
