@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: my-deployment-GIT_BRANCH
   namespace: kubernetes-cluster-tarunkhosla
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: myapp
+      app: myapp-GIT_BRANCH
   template:
     metadata:
       labels:
-        app: myapp
+        app: myapp-GIT_BRANCH
     spec:
       containers:
       - name: my-app
@@ -34,15 +34,15 @@ spec:
   replicas: 4
   selector:
     matchLabels:
-      app: myapp
+      app: myapp-GIT_BRANCH
 ---
 apiVersion: v1
 kind : ConfigMap
 metadata:
-  name: my-configmap
+  name: my-configmap-GIT_BRANCH
   namespace: kubernetes-cluster-tarunkhosla
   labels:
-     app: myapp
+     app: myapp-GIT_BRANCH
 data:
   key1: value1
   key2: value2
@@ -50,11 +50,10 @@ data:
 apiVersion: v1
 kind : Secret
 metadata:
-  name: my-secret
+  name: my-secret-GIT_BRANCH
   namespace: kubernetes-cluster-tarunkhosla
 data:
   username: YWRtaW4=
-  password: MWYyZDFlMmU2N2Rm
+  password: TmFncFJvY2tz
 type: Opaque
 ---
-
