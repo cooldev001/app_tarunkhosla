@@ -41,8 +41,10 @@ pipeline {
         }
         stage('Kubernetes Deployment') {
             steps {
+                def branch = env.GIT_BRANCH
                 echo "**** Start Kubernetes Deployment ****"
                 sh """ 
+                    sed s/%GIT_BRANCH%/$branch/g k8s/deployment.yaml
                     kubectl apply -f k8s/deployment.yaml
                     kubectl apply -f k8s/service.yaml
                 """
