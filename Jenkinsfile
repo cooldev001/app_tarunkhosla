@@ -46,7 +46,7 @@ pipeline {
             steps {
                 echo "**** Start Kubernetes Deployment ****"
                 sh """ 
-                    sed s/%GIT_BRANCH%/$branch/g k8s/deployment.yaml
+                    sed -i -e s/GIT_BRANCH/$branch/g k8s/deployment.yaml
                     kubectl apply -f k8s/deployment.yaml
                     kubectl apply -f k8s/service.yaml
                 """
