@@ -1,6 +1,9 @@
 def app
 pipeline {
     agent any
+    environment {
+        branch = "${env.GIT_BRANCH}"
+    }
     tools {
         nodejs 'nodejs'
     }
@@ -41,7 +44,6 @@ pipeline {
         }
         stage('Kubernetes Deployment') {
             steps {
-                def branch = env.GIT_BRANCH
                 echo "**** Start Kubernetes Deployment ****"
                 sh """ 
                     sed s/%GIT_BRANCH%/$branch/g k8s/deployment.yaml
