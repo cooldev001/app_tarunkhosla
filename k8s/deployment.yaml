@@ -44,7 +44,7 @@ metadata:
   labels:
      app: myapp-GIT_BRANCH
 data:
-  key1: value1
+  key1: GIT_BRANCH
   key2: value2
 ---
 apiVersion: v1
