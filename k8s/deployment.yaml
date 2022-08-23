@@ -21,16 +21,16 @@ spec:
           - name: key1
             valueFrom:
               configMapKeyRef:
-                name: my-configmap
+                name: my-configmap-GIT_BRANCH
                 key: key1
           - name: key2
             valueFrom:
               configMapKeyRef:
-                name: my-configmap
+                name: my-configmap-GIT_BRANCH
                 key: key2
         envFrom:
           - secretRef:
-              name: my-secret
+              name: my-secret-GIT_BRANCH
   replicas: 4
   selector:
     matchLabels:
