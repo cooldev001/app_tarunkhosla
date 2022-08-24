@@ -33,6 +33,8 @@ pipeline {
                 scannerHome = tool 'SonarQubeScanner'
             }
             steps {
+                // The tests have to be run for Sonarqube to read the reports
+                sh 'npm run test'
                 echo "**** Start Sonarqube Analysis ****"
                 withSonarQubeEnv('Test_Sonar') {
                     sh """
